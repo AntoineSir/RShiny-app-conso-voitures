@@ -19,4 +19,5 @@ Imports:
     DT,
     datasets,
     dplyr,
-    shinythemes
+    shinythemes,
+    ggplot2

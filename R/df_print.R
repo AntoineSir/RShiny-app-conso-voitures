@@ -25,7 +25,8 @@ df_print <- function(df = voitures_2014){
            conso_exurb = round(as.numeric(gsub(",", ".", conso_exurb)), 2),
            conso_mixte = round(as.numeric(gsub(",", ".", conso_mixte)), 2),
            position_annee = unlist(gregexpr(pattern ='EURO', champ_v9)),
-           `Année du modèle` = as.numeric(substr(champ_v9, position_annee - 4, position_annee - 1))) %>%
+           `Année du modèle` = as.numeric(substr(champ_v9, position_annee - 4, position_annee - 1)),
+           `Année du modèle` = replace(`Année du modèle`, is.na(`Année du modèle`), 2008)) %>%
     arrange(co2) %>%
     select(Marque = lib_mrq, `Modèle` = dscom,
            `Type de carburant` = cod_cbr,
