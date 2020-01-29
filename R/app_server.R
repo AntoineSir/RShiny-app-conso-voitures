@@ -2,6 +2,7 @@
 #' @importFrom graphics hist
 #' @importFrom stats rnorm
 #' @import datasets
+#' @import DT
 app_server <- function(input, output,session) {
 
   output$distPlot <- renderPlot({
@@ -14,5 +15,12 @@ app_server <- function(input, output,session) {
     hist(x, breaks = bins, col = 'darkgray', border = 'white')
 
   })
+
+  output$df_voitures <- DT::renderDataTable(
+    app.voitures::df_print(),
+    filter = "top",
+    options = list(
+      pageLength = 10)
+  )
 
 }

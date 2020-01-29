@@ -2,7 +2,9 @@
 # pour mettre le fichier description à jour
 
 # usethis::use_package("shiny")
+# usethis::use_package("shinythemes")
 # usethis::use_package("graphics")
 # usethis::use_package("stats")
 # usethis::use_package("DT")
 # usethis::use_package("datasets")
+# usethis::use_package("dplyr")

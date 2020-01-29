@@ -6,7 +6,7 @@ app_ui <- function() {
 
      tabPanel("plot",
 
-       # Application title
+       # Titre de l'onglet
        titlePanel("Old Faithful Geyser Data"),
 
        # Sidebar with a slider input for number of bins
@@ -28,7 +28,14 @@ app_ui <- function() {
      ),
 
 
-     tabPanel("rien")
+     tabPanel("Voir les voitures",
+
+      # Titre de l'onglet
+      titlePanel("Caractéristiques et émissions des voitures en 2014"),
+
+      splitLayout(DTOutput('df_voitures'))
+
+      )
 
 
   )

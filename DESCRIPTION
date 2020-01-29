@@ -17,4 +17,6 @@ Imports:
     graphics,
     stats,
     DT,
-    datasets
+    datasets,
+    dplyr,
+    shinythemes
