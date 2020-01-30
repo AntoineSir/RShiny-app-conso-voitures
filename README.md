@@ -10,4 +10,4 @@ Cette première partie affiche un graphe des émissions de CO2 en fonction de la
 Cette partie, très simple, se contente d'afficher les données utilisées (et nettoyées par une fonction du package) et permet à l'utilisateur d'opérer des tris et des filtres sur la table. Elle illustre les fonctions `renderDataTable` (côté serveur) et `dataTableOutput` (côté ui).  
 
 ## Prédire ma consommation 
-*En développement*
+Cette partie propose à l'utilisateur une estimation (grossière) de la consommation d'un véhicule en fonction de quelques caractéristiques (carrosserie, type de carburant, gamme du véhicule...). Elle vise à illustrer les possibilités de partage de modèles prédictifs ainsi que les fonctions `textOutput` et `renderText`. 
