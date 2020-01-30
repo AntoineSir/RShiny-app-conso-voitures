@@ -65,10 +65,11 @@ app_server <- function(input, output, session) {
   predict_co2 <- eventReactive(input$go2, {
     data <- data.frame(gamme = as.factor(input$gamme),
                        carbu = as.factor(input$carbu2),
-                       carross = as.factor(input$carrosserie))
+                       carross = as.factor(input$carrosserie),
+                       annee = as.numeric(input$annee2))
     predict(modele_pred, newdata = data)
   })
-  output$my_text <- renderText({paste0("Avec les critères que vous avez choisis, notre modèle de prédiction linéaire estime une consommation d'environ ", round(predict_co2(), 0),
+  output$my_text <- renderText({paste0("Avec les critères que vous avez choisis, notre modèle de prédiction linéaire estime une consommation d'environ ", max(round(predict_co2(), 0), 0),
                                        " grammes de CO2 par kilomètre parcouru.",
                                       " Pour comparaison, le niveau moyen de consommation des voitures circulant en france en 2014 est de ",
                                       round(mean(app.voitures::df_print()[["Émissions de co2 (en g/km)"]], 0)),

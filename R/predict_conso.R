@@ -12,9 +12,10 @@ predict_conso <- function(train = app.voitures::df_print()){
     transmute(carross = as.factor(Carrosserie),
               gamme = as.factor(Gamme),
               carbu = as.factor(`Type de carburant`),
-              co2 = `Émissions de co2 (en g/km)`) %>%
-    filter_at(vars(carross, gamme, carbu, co2), all_vars(!is.na(.)))
-  return(lm(data = data_in, co2 ~ gamme + carbu + co2))
+              co2 = `Émissions de co2 (en g/km)`,
+              annee = `Année du modèle`) %>%
+    filter_at(vars(carross, gamme, carbu, co2, annee), all_vars(!is.na(.)))
+  return(lm(data = data_in, co2 ~ gamme + carbu + co2 + annee))
 
 }
 

@@ -26,7 +26,7 @@ app_ui <- function() {
            checkboxGroupInput("carbu",
                        "Choisissez des carburants : ",
                        choices = unique(df_print()[["Type de carburant"]]),
-                       selected = unique(df_print()[["Type de carburant"]])),
+                       selected = "Essence uniquement"),
            selectInput("var_group", "Ventiler par :",
                        choices = c("Aucun", "Type de carburant", "Marque", "Type de voiture", "Année modèle"),
                        selected = "Aucun"),
@@ -35,7 +35,7 @@ app_ui <- function() {
 
          # Show a plot of the generated distribution
          mainPanel(
-           plotOutput("my_plot")
+           plotOutput("my_plot",  width = "100%")
          )
 
        )
@@ -56,6 +56,11 @@ app_ui <- function() {
 
       sidebarLayout(
         sidebarPanel(
+          numericInput("annee2",
+                      "Choisissez l'année du modèle :",
+                      min = 2007,
+                      max = 2013,
+                      value = 2013),
           selectInput("carbu2",
                       "Choisissez un type de carburant : ",
                       choices = sort(unique(df_print()[["Type de carburant"]])),
