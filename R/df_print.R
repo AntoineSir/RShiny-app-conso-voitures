@@ -33,8 +33,9 @@ df_print <- function(df = voitures_2014){
            `Année du modèle`, Carrosserie, Gamme = gamme,
            `Consommation urbaine (en l/100km)` = conso_urb,
            `Consommation exo-urbaine (en l/100km)` = conso_exurb, `Consommation mixte (en l/100km)` = conso_mixte,
-           `Émissions de co2 (en g/100km)` = co2
+           `Émissions de co2 (en g/km)` = co2
            ) %>%
+    filter(`Type de carburant` != "Electrique uniquement") %>%
     distinct()
 
 }

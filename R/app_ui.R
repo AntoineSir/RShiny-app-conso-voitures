@@ -1,17 +1,18 @@
 #' @import shiny
 #' @import shinythemes
+#' @import DT
 #'
 app_ui <- function() {
-  navbarPage(theme = shinythemes::shinytheme("united"), "Mon appli",
+  navbarPage(theme = shinythemes::shinytheme("united"), "Performances écologiques des voitures françaises en 2014",
 
      tabPanel("Représentation graphique des performances",
 
        # Titre de l'onglet
        titlePanel("Émissions de Co2 & consommation"),
 
-       # Sidebar with a slider input for number of bins
+       # Sidebar with different inputs
        sidebarLayout(
-         sidebarPanel("Choix des variables",
+         sidebarPanel(
            sliderInput("annee",
                        "Année des modèles des voitures :",
                        min = 2007,
@@ -34,7 +35,7 @@ app_ui <- function() {
 
          # Show a plot of the generated distribution
          mainPanel(
-           plotOutput("distPlot")
+           plotOutput("my_plot")
          )
 
        )
@@ -46,10 +47,38 @@ app_ui <- function() {
       # Titre de l'onglet
       titlePanel("Caractéristiques et émissions des voitures en 2014"),
 
-      splitLayout(DTOutput('df_voitures'))
+      splitLayout(DT::DTOutput('df_voitures'))
+
+      ),
+
+
+     tabPanel("Estimer le niveau de pollution de ma voiture",
+
+      sidebarLayout(
+        sidebarPanel(
+          selectInput("carbu2",
+                      "Choisissez un type de carburant : ",
+                      choices = sort(unique(df_print()[["Type de carburant"]])),
+                      selected = "Essence uniquement",
+                      multiple = FALSE),
+          radioButtons("carrosserie",
+                       "Choisissez une carroserie : ",
+                       choices = unique(df_print()[["Carrosserie"]]),
+                       selected = "BERLINE"),
+          selectInput("gamme", "Choisissez une gamme : ",
+                      choices = unique(df_print()[["Gamme"]]),
+                      selected = "INFERIEURE"),
+          actionButton("go2", "Lancer la prédiction")
+        ),
+
+        # Show a plot of the generated distribution
+        mainPanel(
+          textOutput("my_text")
+        )
 
       )
 
-
+     )
   )
+
 }
