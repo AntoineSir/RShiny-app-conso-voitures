@@ -1,0 +1,12 @@
+name: conso_voitures
+title: conso_voitures
+username:
+account: antoinesir
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1733373
+bundleId: 2763982
+url: https://antoinesir.shinyapps.io/conso_voitures/
+when: 1580394555.19496
+asMultiple: FALSE
+asStatic: FALSE
