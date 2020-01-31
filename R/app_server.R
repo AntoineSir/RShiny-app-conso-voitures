@@ -2,6 +2,7 @@
 #' @import ggplot2
 #' @import dplyr
 #' @import DT
+#' @export
 app_server <- function(input, output, session) {
 
   data <- app.voitures::df_print()

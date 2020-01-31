@@ -1,6 +1,7 @@
 #' @import shiny
 #' @import shinythemes
 #' @import DT
+#' @export
 #'
 app_ui <- function() {
   navbarPage(theme = shinythemes::shinytheme("united"), "Performances écologiques des voitures françaises en 2014",
