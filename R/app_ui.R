@@ -76,7 +76,7 @@ app_ui <- function() {
           actionButton("go2", "Lancer la prédiction")
         ),
 
-        # Show a plot of the generated distribution
+        # Afficher résultat prédiction
         mainPanel(
           textOutput("my_text")
         )

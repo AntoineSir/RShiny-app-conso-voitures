@@ -2,6 +2,7 @@
 
 export(df_print)
 export(predict_conso)
+export(run_app)
 import(DT)
 import(dplyr)
 import(ggplot2)
