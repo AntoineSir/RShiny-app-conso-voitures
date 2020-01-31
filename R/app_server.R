@@ -2,6 +2,7 @@
 #' @import ggplot2
 #' @import dplyr
 #' @import DT
+#' @importFrom stats predict
 #' @export
 app_server <- function(input, output, session) {
 
@@ -68,7 +69,7 @@ app_server <- function(input, output, session) {
                        carbu = as.factor(input$carbu2),
                        carross = as.factor(input$carrosserie),
                        annee = as.numeric(input$annee2))
-    predict(modele_pred, newdata = data)
+    stats::predict(modele_pred, newdata = data)
   })
   output$my_text <- renderText({paste0("Avec les critères que vous avez choisis, notre modèle de prédiction linéaire estime une consommation d'environ ", max(round(predict_co2(), 0), 0),
                                        " grammes de CO2 par kilomètre parcouru.",
