@@ -4,7 +4,7 @@
 \alias{df_print}
 \title{Fonction pour définir le dataframe qui s'affiche pour l'utilisateur}
 \usage{
-df_print(df = voitures_2014)
+df_print(df = app.voitures::voitures_2014)
 }
 \arguments{
 \item{df}{}

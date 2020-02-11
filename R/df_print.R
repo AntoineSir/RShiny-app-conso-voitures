@@ -8,7 +8,7 @@
 #' @export
 #'
 #'
-df_print <- function(df = voitures_2014){
+df_print <- function(df = app.voitures::voitures_2014){
   df %>%
     mutate(cod_cbr = case_when(cod_cbr == "EE" ~ "Essence + Electrique",
                                cod_cbr == "EH" ~ "Hybride essence élec non rechargeable",
